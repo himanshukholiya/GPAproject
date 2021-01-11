@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>GPA Calculator</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>	
+  <script type="text/javascript" src="app.js"></script>
+</head>
+
+<body ng-app = "studentApp">
+        <div class="container">
+            <h2 align="center"><b>School GPA Calculator</b></h2>
+           <div ng-controller = "GPActrl">
+                    <h4 align="center" class="border border-dark border-bottom-0"><b>Average GPA</b></h4>
+                    <h1 align="center" class=" text-danger border border-dark border-top-0">{{getTotal()}}</h1>
+            
+
+                <ul class="list-group list-group-horizontal">
+                        <li ng-repeat="j in gradedata" class="list-group-item">
+                             <button  class="btn" type="button" ng-click="sortItem($index, content)"> GRADE {{j}}</button>
+                             <button class="btn  text-danger" type="button" ng-click="deleteItem($index, content)"><b>x</b></button>
+                        </li>
+                        <li class="list-group-item border-0 BB"><input type="text" ng-model="grade" /></li>
+                        <li class="list-group-item border-0"><button ng-click="addGrade()" class="btn btn-success"> Add Grade</button></li>
+                </ul>
+ 
+                <h3 class="CC" >Search By Grade: </h3> <input class="DD" type="text" ng-model="grade1">
+
+                <table class="table table-stripted table-bordered table-bordered table-hover"> 
+                    <tr>
+                        <th>Grade</th>
+                        <th>Name</th>
+                        <th>GPA</th>
+                        <th></th>
+                       
+                    </tr>
+        
+                    <tr ng-repeat="i in data | filter : grade1">
+                        <td><label>{{i.g}}</label></td>
+                        <td><label>{{i.name}}</label></td>
+                        <td><label>{{i.GPA}}</label></td>
+                        <td><button type="button" class="btn btn-danger" ng-click="deleteItem2($index, content)"><b>X</b></button></td>
+                    </tr>
+                </table>
+
+                <ul class="list-group list-group-horizontal FF">
+                    <li ><input  class="list-group-item"  type="text" ng-model="Grade" placeholder="Enter Grade"/></li>
+
+                    <li><input  class="list-group-item" type="text" ng-model="name" placeholder="Enter Name"/></li>
+
+                    <li><input  class="list-group-item" type="number" ng-model="GPA" placeholder="Enter GPA"/></li>
+                
+                    <li  ><button class="btn btn-success list-group-item GG" ng-click="addRow()"> Add Student</button></li>
+                </ul>
+           
+                </div>
+        </div>
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+
+.navb{
+    max-width:70%;
+}
+
+.BB{
+    padding-top:17px;
+    padding-left:30px;
+    padding-right:5px;
+}
+
+.CC{
+    margin-top:30px;
+    margin-bottom: 30px;
+  
+}
+
+.DD{
+    margin-bottom: 30px;
+}
+.FF{
+margin-top:20px ;
+}
+
+.GG{
+    color:black;
+    background-color: rgb(25, 146, 25);
+    border-radius: 3px;
+}
